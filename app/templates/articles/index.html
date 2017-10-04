@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+    <h1>記事一覧</h1>
+
+    <ul>
+        {% for article in artilces %}
+            <li><a href="{% url 'articles:detail' pk=article.pk %}">{{ article.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock main %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+
+{% block main %}
+    <div><a href="{% url 'articles:index' %}">List</a></div>
+    <article>
+        <h1>{{ article.title }}</h1>
+        <main>
+            {{ article.body|linebreaks }}
+        </main>
+    </article>
+
+    <form method="POST">
+        {% csrf_token %}
+        <dl>
+            <dt>Comment</dt>
+            <dd>{% render_field form.comment %}</dd>
+        </dl>
+        <div><button type="submit">Submit</button></div>
+    </form>
+
+    <ul>
+        {% for comment in comments %}
+            <li>{{ comment.comment }}</li>
+        {% endfor %}
+    </ul>
+{% endblock main %}

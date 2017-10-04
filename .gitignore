@@ -1,0 +1,11 @@
+*.pyc
+*.pyo
+__pycache__
+.volumes
+.cache
+.direnv
+.mypy_cache
+.envrc
+.vscode
+app/db.sqlite3
+app/logs/**/*.log

@@ -1,0 +1,20 @@
+---
+version: '2'
+
+
+services:
+  # ===================================================================
+  # Application Servers
+  # ===================================================================
+  django:
+    build: .
+    container_name: django-example
+    command: /app/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app:/app
+      - ./setup.cfg:/app/setup.cfg
+    ports:
+      - 8000:8000
+    environment:
+      # Timezone
+      TZ: Asia/Tokyo
